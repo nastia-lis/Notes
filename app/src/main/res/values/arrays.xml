@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="notes">
+        <item>@string/note_1</item>
+        <item>@string/note_2</item>
+        <item>@string/note_3</item>
+    </string-array>
+
+    <string-array name="description_note">
+        <item>@string/note1_description</item>
+        <item>@string/note2_description</item>
+        <item>@string/note3_description</item>
+    </string-array>
+</resources>

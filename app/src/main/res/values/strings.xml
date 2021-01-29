@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Notes</string>
+    <string name="note_1">Note 1</string>
+    <string name="note_2">Note 2</string>
+    <string name="note_3">Note 3</string>
+    <string name="note1_description">Note 1 description</string>
+    <string name="note2_description">Note 2 description</string>
+    <string name="note3_description">Note 3 description</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

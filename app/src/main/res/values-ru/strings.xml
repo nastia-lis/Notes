@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Заметки</string>
+    <string name="note_1">Заметка 1</string>
+    <string name="note_2">Заметка 2</string>
+    <string name="note_3">Заметка 3</string>
+    <string name="note1_description">Заметка 1 описание</string>
+    <string name="note2_description">Заметка 2 описание</string>
+    <string name="note3_description">Заметка 3 описание</string>
+    <string name="search">Поиск</string>
+    <string name="sort">Сортировка</string>
+    <string name="settings">Настройки</string>
+    <string name="to_share">Поделиться</string>
+    <string name="add_info">Добавить информацию</string>
+</resources>

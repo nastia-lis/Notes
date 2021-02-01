@@ -6,4 +6,9 @@
     <string name="note1_description">Note 1 description</string>
     <string name="note2_description">Note 2 description</string>
     <string name="note3_description">Note 3 description</string>
+    <string name="search">Search</string>
+    <string name="sort">Sorting</string>
+    <string name="settings">Settings</string>
+    <string name="to_share">To share</string>
+    <string name="add_info">Add information</string>
 </resources>

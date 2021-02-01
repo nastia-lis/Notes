@@ -13,14 +13,18 @@ public class DescriptionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_description);
 
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            // Если устройство перевернули в альбомную ориентацию, то надо эту activity закрыть
             finish();
             return;
         }
 
         if (savedInstanceState == null) {
-            DescriptionFragment descriptionFragment = new DescriptionFragment();
-            descriptionFragment.setArguments(getIntent().getExtras());
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_des, descriptionFragment).commit();
+            DescriptionFragment details = new DescriptionFragment();
+            details.setArguments(getIntent().getExtras());
+            // Добавим фрагмент на activity
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment_des, details).commit();
         }
     }
 }

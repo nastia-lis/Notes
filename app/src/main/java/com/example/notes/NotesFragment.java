@@ -42,15 +42,14 @@ public class NotesFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
         isLandscape = getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
-        if (isLandscape) {
-            showLandNotes(currentNote);
-        }
         if (savedInstanceState != null) {
             currentNote = savedInstanceState.getParcelable(NOTE_CURRENT);
         } else {
             currentNote = new Notes(0, getResources().getStringArray(R.array.notes)[0]);
+        }
+        if (isLandscape) {
+            showLandNotes(currentNote);
         }
     }
 
@@ -90,7 +89,7 @@ public class NotesFragment extends Fragment {
         DescriptionFragment descriptionFragment = DescriptionFragment.newInstance(currentNote);
         FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.text_description, descriptionFragment);
+        fragmentTransaction.replace(R.id.text, descriptionFragment);
         fragmentTransaction.setTransition(fragmentTransaction.TRANSIT_FRAGMENT_FADE);
         fragmentTransaction.commit();
     }

@@ -2,20 +2,20 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/teal_200"
     android:orientation="horizontal"
-    android:padding="@dimen/padding"
-    android:background="@color/teal_200">
+    android:padding="@dimen/padding">
 
     <fragment
         android:id="@+id/notes"
         android:name="com.example.notes.NotesFragment"
-        android:layout_weight="1"
         android:layout_width="0dp"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
 
     <FrameLayout
         android:id="@+id/text"
-        android:layout_weight="1"
         android:layout_width="0dp"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
 </LinearLayout>

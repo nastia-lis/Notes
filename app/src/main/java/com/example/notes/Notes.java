@@ -4,25 +4,27 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Notes implements Parcelable {
-    private int indexNote;
+    private String title;
     private String description;
+    private int indexNote;
+    private boolean like;
+
+    public Notes(String title, int indexNote, boolean like) {
+        this.title = title;
+        this.indexNote = indexNote;
+        this.like = like;
+    }
 
     public Notes(int indexNote, String description) {
         this.indexNote = indexNote;
         this.description = description;
     }
 
-    public int getIndexNote() {
-        return indexNote;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
     protected Notes(Parcel in) {
-        indexNote = in.readInt();
+        title = in.readString();
         description = in.readString();
+        indexNote = in.readInt();
+        like = in.readByte() != 0;
     }
 
     public static final Creator<Notes> CREATOR = new Creator<Notes>() {
@@ -37,6 +39,22 @@ public class Notes implements Parcelable {
         }
     };
 
+    public int getIndexNote() {
+        return indexNote;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public boolean isLike() {
+        return like;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -44,7 +62,9 @@ public class Notes implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(indexNote);
+        dest.writeString(title);
         dest.writeString(description);
+        dest.writeInt(indexNote);
+        dest.writeByte((byte) (like ? 1 : 0));
     }
 }

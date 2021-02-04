@@ -1,16 +1,42 @@
 package com.example.notes;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
-    private String[] notes;
+    private final static String TAG = "MyAdapter";
+    private CardsNote cardsNote;
     private OnItemClickListener onItemClickListener;
+
+    public MyAdapter(CardsNote notes) {
+        this.cardsNote = notes;
+    }
+
+    @NonNull
+    @Override
+    public MyAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.notes_card, parent, false);
+        Log.d(TAG, "onCreateViewHolder");
+        return new ViewHolder(v);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        holder.setNote(cardsNote.getNotes(position));
+    }
+
+    @Override
+    public int getItemCount() {
+        return cardsNote.size();
+    }
 
     public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
         this.onItemClickListener = onItemClickListener;
@@ -20,42 +46,25 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         void onItemClick(View view, int position);
     }
 
-    public MyAdapter(String[] notes) {
-        this.notes = notes;
-    }
-
-    @NonNull
-    @Override
-    public MyAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.notes, parent, false);
-        return new ViewHolder(v);
-    }
-
-    @Override
-    public void onBindViewHolder(@NonNull MyAdapter.ViewHolder holder, int position) {
-        holder.getTextView().setText(notes[position]);
-    }
-
-    @Override
-    public int getItemCount() {
-        return notes.length;
-    }
-
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView textView;
+   public class ViewHolder extends RecyclerView.ViewHolder {
+        private TextView title;
+        private CheckBox like;
+        private int index;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            textView = (TextView) itemView;
-            textView.setOnClickListener(v -> {
+            title = itemView.findViewById(R.id.title_note);
+            like = itemView.findViewById(R.id.check_note);
+            title.setOnClickListener(v -> {
                 if (onItemClickListener != null) {
                     onItemClickListener.onItemClick(v, getAdapterPosition());
                 }
             });
         }
 
-        public TextView getTextView() {
-            return textView;
+        public void setNote(Notes note) {
+            title.setText(note.getTitle());
+            like.setChecked(note.isLike());
         }
     }
 }

@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:id="@+id/fragment_description">
+    android:id="@+id/fragment_description"
+    android:background="@android:color/darker_gray">
 
     <EditText
         android:id="@+id/text_description"

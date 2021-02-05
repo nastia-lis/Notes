@@ -3,9 +3,9 @@
     <string name="note_1">Note 1</string>
     <string name="note_2">Note 2</string>
     <string name="note_3">Note 3</string>
-    <string name="note1_description">Note 1 description</string>
-    <string name="note2_description">Note 2 description</string>
-    <string name="note3_description">Note 3 description</string>
+    <string name="note1_description">Description 1</string>
+    <string name="note2_description">Description 2 </string>
+    <string name="note3_description">Description 3</string>
     <string name="search">Search</string>
     <string name="sort">Sorting</string>
     <string name="settings">Settings</string>
